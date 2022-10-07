@@ -27,8 +27,9 @@ fn main() {
 
     let mut numbers = vec![1, 2, 3, 4];
     for x in &mut numbers {
-      *x * 3 // multiply the value by 3 via the mutable reference x
-    }
+      *x *= 3;
+    } // multiply the value by 3 via the mutable reference x
+    
     println!("{:?}", numbers); // should print [3, 6, 9, 12]
 
     // 4. Uncomment the code below.  Take the vector of words and
@@ -39,9 +40,13 @@ fn main() {
     //
     // Hint: .to_uppercase() is a method on `str` which returns a String
 
-    // let words = vec!["autobot", "beach", "car", "decepticon", "energon", "frothy"];
-    // let transformed...  // do the stuff here
-    // println!("Transformed: {:?}", transformed);
+    let words = vec!["autobot", "beach", "car", "decepticon", "energon", "frothy"];
+    let transformed: Vec<_> = words
+          .into_iter()
+          .filter(|x| !x.contains("h"))
+          .map(|y| y.to_uppercase())
+          .collect();  // do the stuff here
+    println!("Transformed: {:?}", transformed);
 
     // Challenge:
     //

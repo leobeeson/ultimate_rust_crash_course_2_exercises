@@ -117,8 +117,8 @@ fn main() {
 
     drop(tx_0);
 
-    let _ = thread_1.join().unwrap();
-    let _ = thread_2.join().unwrap();
+    let _ = thread_1.join();
+    let _ = thread_2.join();
 
     println!("Main thread: Exiting.")
 }
